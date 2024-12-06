@@ -4,7 +4,7 @@ The standard approach of  [Proximal Policy Optimization](https://arxiv.org/pdf/1
 
 When we have access to human-annotated high-quality data, is there any advantage to having access to generated responses of a stronger LLM on the same dataset?
 
-To answer this question we set up a simple experiemnt in which we train a small 0.27 B transformer on [mathematics_dataset](https://arxiv.org/pdf/1904.01557) from Google, deepmind guided by [Llama 8B](https://ai.meta.com/blog/meta-llama-3/). For us the loss function that we minimize at time t includes a contribution of Kullback–Leibler divergence between the Llama and our model, more precisely for a given input promot x,
+To answer this question we set up a simple experiemnt in which we train a small 0.27 B transformer on [mathematics_dataset](https://arxiv.org/pdf/1904.01557) from Google, deepmind guided by [Llama 8B](https://ai.meta.com/blog/meta-llama-3/). For us the loss function that we minimize at time t includes a contribution of Kullback–Leibler divergence between the Llama and our model, more precisely for a given input prompt x,
 
 $Loss(x,t) = \lambda( KL(pdata(|x), p(t|x))+\lambda' KL(pLlama(|x), p(t|x)))$
 
