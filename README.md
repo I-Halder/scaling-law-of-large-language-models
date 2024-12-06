@@ -8,7 +8,7 @@ To answer this question we set up a simple experiemnt in which we train a small 
 
 $Loss(x,t) = \lambda( KL(pdata(|x), p(t|x))+\lambda' KL(pLlama(|x), p(t|x)))$
 
-Where there first term is the usual SFT loss function between the  human-annotated probability distribution function pdata(|x) for the output and that of our model represented by p(t|x), and the second term tries to push the performance of our model towards that of LLama.
+Where there first term is the usual SFT loss function between the  human-annotated probability distribution function pdata(|x) for the output and that of our model represented by p(t|x), and the second term tries to push the performance of our model towards that of Llama.
 
 <center>
 <img alt="fig1" width="800px" src="LLM aligned SFT.png">
