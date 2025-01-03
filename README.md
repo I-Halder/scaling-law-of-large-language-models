@@ -6,9 +6,9 @@ When we have access to human-annotated high-quality data, is there any advantage
 
 To answer this question we set up a simple experiment in which we train a small 0.27 B transformer on [mathematics_dataset](https://arxiv.org/pdf/1904.01557) from Google, deepmind guided by [Llama 8B](https://ai.meta.com/blog/meta-llama-3/). For us, the loss function that we minimize at time t includes a contribution of Kullback–Leibler divergence between Llama and our model, more precisely for a given input prompt x,
 
-$Loss(x,t) = \lambda( KL(pdata(|x), p(t|x))-KL(pdata(|x), p(t-1|x))+\lambda' KL(p(t|x),pLlama(|x)))$
+$Loss(x,t) = \lambda( KL(pdata(|x), p(t|x))-KL(pdata(|x), pLlama(|x))+\lambda'\int dy p(y,t|x) KL(p(t|x,y),pLlama(|x,y)))$
 
-Where there first two terms are the usual SFT loss function between the human-annotated probability distribution function pdata(|x) for the output and that of our model represented by p(t|x), and the second term tries to push the performance of our model towards that of Llama. Note that this method does not require us to know the weights of the helping LLM (here Llama) as opposed to most knowledge-distillation techniques. The results are presented below:
+Where there first two terms are the usual SFT loss function between the human-annotated probability distribution function pdata(|x) for the output and that of our model represented by p(t|x), and the second term tries to push the performance of our model towards that of Llama for the feedback on generated prompt-response pairs. Note that this method does not require us to know the weights of the helping LLM (here Llama) as opposed to most knowledge-distillation techniques. The results are presented below:
 
 <center>
 <img alt="fig1" width="800px" src="LLM aligned SFT.png">
