@@ -8,8 +8,10 @@ To answer this question we set up a simple experiment in which we train a small 
 
 $Loss(x,t) = \lambda( KL(pdata(|x), p(t|x))-KL(pdata(|x), pLlama(|x))+\lambda'\int dy p(y,t|x) KL(p(t|x,y),pLlama(|x,y)))$
 
-Where there first two terms are the usual SFT loss function between the human-annotated probability distribution function pdata(|x) for the output and that of our model represented by p(t|x), and the second term tries to push the performance of our model towards that of Llama for the feedback on generated prompt-response pairs. Note that this method does not require us to know the weights of the helping LLM (here Llama) as opposed to most knowledge-distillation techniques. The results are presented below:
+Where there first two terms are the usual SFT loss function between the human-annotated probability distribution function pdata(|x) for the output and that of our model represented by p(t|x), and the last term tries to push the performance of our model towards that of Llama for the feedback on generated prompt-response pairs. Note that this method does not require us to know the weights of the helping LLM (here Llama) as opposed to most knowledge-distillation techniques. The results are presented below:
 
 <center>
 <img alt="fig1" width="800px" src="LLM aligned SFT.png">
 </center>
+
+The experiment is performed on a transformer with 0.27B trainable parameters. 
