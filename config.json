@@ -1,0 +1,16 @@
+{
+    "max_seq_len":128,
+    "dataset_length":100,
+    "heads":1,
+    "depth":1,
+    "decoder_dim":8,
+    "lSFT":0.1,
+    "lA":0.0,
+    "epochs":2,
+    "batchsize":18,
+    "ref_model_id":"meta-llama/Llama-3.1-8B-Instruct",
+    "temperature":0.01,
+    "checkpoint_every":50,
+    "checkpoint_folder":false,
+    "max_digit":1000
+}
