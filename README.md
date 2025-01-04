@@ -14,4 +14,4 @@ Where there first two terms are the usual SFT loss function between the human-an
 <img alt="fig1" width="800px" src="LLM aligned SFT.png">
 </center>
 
-The experiment is performed on a transformer with 0.27B trainable parameters. 
+The experiment is performed on a transformer with 0.27B trainable parameters. From the plot, we see that as $\lambda'$ is increased the asymptotic value of the loss at large compute decreases significantly.  
