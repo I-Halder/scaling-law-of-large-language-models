@@ -16,7 +16,6 @@ def default(v, d):
     return v if exists(v) else d
 
 
-
 def log(t, eps = 1e-20):
     return torch.log(t.clamp(min = eps))
 
