@@ -18,3 +18,10 @@ Given a permutation $\tau$, the Plackett-Luce model assigns a probability distri
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;p(y_{\tau(1)}>\ldots>y_{\tau(K)}|x)=\prod_{k=1}^{K}\frac{\exp(-E(y_{\tau(k)}|x))}{\sum_{j=k}^{K}\exp(-E(y_{\tau(j)}|x))}" />
 </td></tr>
 </table>
+
+In usual approach to reinforcement learning we minimize the following objective 
+<table align="center">
+<tr><td>
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;-min_{\pi_{\theta}}\mathbb{E}_{x\sim\mathcal{D},y_1>y_2>\dots>y_K}\bigl[log\hspace{0.1cm}p(y_1>y_2>\dots>y_K|x)\bigr]" />
+</td></tr>
+</table>
