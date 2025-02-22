@@ -44,3 +44,5 @@ We train a transformer with single heads of head_dim 64, max_seq_len 256, vocab_
 <div style="display: flex; justify-content: center;">
     <img alt="fig1" width="1000px" src="loss_vs_compute.jpg" style="transform: translateX(30px);">
 </div>
+
+From the plot we see that given a computational budget, there is an optimal model size.
