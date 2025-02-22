@@ -39,6 +39,6 @@ Self-Play Fine-Tuning (SPIN) corresponds to $K=2$. In this case we set $\pi_{ref
 
 ## Reproducing known scaling laws
 
-<center>
-<img alt="fig1" width="800px" src="loss_vs_compute.jpg">
-</center>
+<div style="display: flex; justify-content: center;">
+    <img alt="fig1" width="1000px" src="loss_vs_compute.jpg" style="transform: translateX(30px);">
+</div>
