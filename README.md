@@ -46,3 +46,7 @@ We train a transformer with single heads of head_dim 64, max_seq_len 256, vocab_
 </div>
 
 From the plot we see that given a computational budget, there is an optimal model size.
+
+## Modified scaling laws
+
+Will be updated soon.
