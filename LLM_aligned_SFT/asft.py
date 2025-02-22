@@ -230,9 +230,9 @@ class aSFT(Module):
         policy_generated_logprob, ref_generated_logprob = [masked_mean(seq, maybe_and_mask(generated_seq_mask, ~generated_prompt_mask)) for seq in (policy_generated_logprob, ref_generated_logprob)]
         policy_real_logprob, ref_real_logprob = [masked_mean(seq, maybe_and_mask(real_seq_mask, ~real_prompt_mask)) for seq in (policy_real_logprob, ref_real_logprob)]
 
-        # aSFT loss: first two terms corresponds to checking answering ability of the model when just question is passed, last two terms corresponds to checking correction/explanation when question and answer are passed 
-
-        losses = -F.logsigmoid(self.λ * ((policy_real_logprob - ref_real_logprob) + self.λp * (policy_generated_logprob - ref_generated_logprob)))
+        # aSFT loss
+        # losses = -F.logsigmoid(self.λ * ((policy_real_logprob - ref_real_logprob) + self.λp * (policy_generated_logprob - ref_generated_logprob)))
+        losses = -self.λ * policy_real_logprob
 
         return losses.mean()
 
