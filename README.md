@@ -1,10 +1,7 @@
-<table align="center">
-<tr><td>
-<img src="https://latex.codecogs.com/svg.latex?\Large&space;E=mc^2" />
-</td></tr>
-</table>
 
-# Review of reinforcement learning from human feedback
+# A new reinforcement learning based algorithm
+
+## Review of standard approach
 We are presented with a prompt $x$ and a set of $K$ answers with ground truth preference $y_1> \ldots>y_K$. The language model generates response $y$ form $\pi_\theta(y|x)$. We define penalty/error  $E(y|x)$ for response $y$ using the following formula
 <table align="center">
 <tr><td>
@@ -32,3 +29,6 @@ In Proximal Policy Optimization (PPO) one solves the last equation to get $E$ an
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;\mathcal{L}_{\text{DPO}}(\pi_{\theta})=-\mathbb{E}_{x\sim\mathcal{D},y_1>\dots>y_K}[log\prod_{k=1}^{K}\frac{e^{T\hspace{0.1cm}log\frac{\pi_{\theta(y_{k}|x)}}{\pi_{ref}(y_{k}|x)}}}{\sum_{j=k}^{K}e^{T\hspace{0.1cm}log\frac{\pi_{\theta}(y_{k}|x)}{\pi_{ref}(y_{k}|x)}}}]" />
 </td></tr>
 </table>
+
+## The new algorithm
+Self-Play Fine-Tuning (SPIN) corresponds to $K=2$. In this case we set $\pi_{ref}=\pi_{\theta(t)}, y_1\sim \pi_{data}(y_1|x), y_2\sim\pi_{\theta(t)}(y_2|x)$. Our method aligned Supervised Fine Tuning (aSFT) corresponds to $K=3$. In this case we set $\pi_{ref}=\pi_{\theta(t)}, y_1\sim \pi_{data}(y_1|x), y_2\sim\pi_{LLM}(y_2|x), y_3\sim\pi_{\theta(t)}(y_3|x)$. Here we are using a larger languge model for assistance in generating $y_2$. 
